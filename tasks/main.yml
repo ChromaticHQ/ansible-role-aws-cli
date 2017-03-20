@@ -1,0 +1,46 @@
+---
+# Install AWS CLI.
+- name: Install AWS CLI.
+  pip:
+    name: awscli
+    state: present
+  become: true
+
+# Make sure it's really present and working.
+- name: Test AWS CLI
+  shell: "aws --version"
+  register: aws_version
+  failed_when: "'aws-cli' not in '{{ aws_version.stderr }}'"
+
+# Make sure the .aws directory exists for each user.
+- name: Create ~/.aws directory
+  file:
+    path: "/home/{{ item.name }}/.aws"
+    owner: "{{ item.name }}"
+    group: "{{ item.group }}"
+    state: directory
+    force: no
+  with_items: "{{ aws_users }}"
+  when: "{{ aws_users | length > 0 }}"
+
+# Create config file if not exists.
+- name: Create AWS CLI config file
+  template:
+    src: config.j2
+    dest: "/home/{{ item.name }}/.aws/config"
+    owner: "{{ item.name }}"
+    group: "{{ item.group }}"
+    force: yes
+  with_items: "{{ aws_users }}"
+  when: "{{ aws_users | length > 0 }}"
+
+# Copy in a sample credentials file if none exists.
+- name: Create AWS CLI credentials file
+  copy:
+    src: credentials
+    dest: "/home/{{ item.name }}/.aws/credentials"
+    owner: "{{ item.name }}"
+    group: "{{ item.group }}"
+    force: no
+  with_items: "{{ aws_users }}"
+  when: "{{ aws_users | length > 0 }}"

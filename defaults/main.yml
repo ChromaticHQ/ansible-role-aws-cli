@@ -1,0 +1,14 @@
+---
+# One or more users to set up AWS CLI configuration directory.
+#
+# Should include user name and values for AWS config file as follows:
+#
+# aws_users:
+# - {
+#   name: "jenkins"
+#   group: "jenkins"
+#   region: "us-east-1"
+#   output: "json"
+# }
+#
+aws_users: []
