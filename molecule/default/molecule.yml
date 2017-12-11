@@ -9,6 +9,10 @@ lint:
   name: yamllint
 platforms:
   - name: instance
+    instance_interfaces:
+      - auto_config: true
+        ip: 192.168.128.64
+        network_name: private_network
     box: ubuntu/xenial64
 provisioner:
   name: ansible

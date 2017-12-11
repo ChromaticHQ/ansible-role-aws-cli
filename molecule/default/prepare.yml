@@ -8,7 +8,14 @@
       become: true
       changed_when: false
 
+    - name: Install pip.
+      apt:
+        name: python-pip
+        update_cache: true
+      become: true
+
     - name: Create user.
       user:
         name: jenkins
         home: /var/lib/jenkins
+      become: true
