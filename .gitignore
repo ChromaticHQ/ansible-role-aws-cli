@@ -1,0 +1,4 @@
+molecule/default/.cache/
+molecule/default/*.log
+molecule/default/.molecule/*
+molecule/default/*/__pycache__

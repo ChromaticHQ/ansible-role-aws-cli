@@ -4,11 +4,14 @@
 # Should include user name and values for AWS config file as follows:
 #
 # aws_users:
-# - {
-#   name: "jenkins"
-#   group: "jenkins"
-#   region: "us-east-1"
-#   output: "json"
-# }
+#   - name: "jenkins"
+#     group: "jenkins"
+#     region: "us-east-1"
+#     output: "json"
+#     home: "/var/lib"
 #
-aws_users: []
+# Should also include the path to the user's home directory in case it might
+# be non-standard (i.e. not in /home).
+
+aws_config: "config.j2"
+aws_credentials: "credentials.j2"

@@ -1,0 +1,15 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-role-aws-cli
+
+  vars:
+    aws_users:
+      - name: "jenkins"
+        group: "jenkins"
+        region: "us-east-1"
+        output: "json"
+        home: "/var/lib"
+    AWS_ACCESS_KEY_ID: "molecule-aws-access-key-id"
+    AWS_SECRET_ACCESS_KEY: "molecule-aws-secret-access-key"
