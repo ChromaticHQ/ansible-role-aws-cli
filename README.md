@@ -18,12 +18,11 @@ No special requirements.
   ```yaml
   # Example `aws_users` configuration.
   aws_users:
-  - {
-    name: jenkins,
-    group: jenkins,
-    region: us-east-1
-    output: json
-  }
+    - name: jenkins,
+      group: jenkins,
+      region: us-east-1
+      output: json
+      home: /var/lib
   ```
 
 ## Dependencies
