@@ -26,7 +26,7 @@
 # Create config file if not exists.
 - name: Create AWS CLI config file
   template:
-    src: config.j2
+    src: "{{ aws_cli_config }}"
     dest: "{{ item.home }}/{{ item.name }}/.aws/config"
     owner: "{{ item.name }}"
     group: "{{ item.group }}"
@@ -36,7 +36,7 @@
 # Copy in a sample credentials file if none exists.
 - name: Create AWS CLI credentials file
   template:
-    src: credentials.j2
+    src: "{{ aws_cli_credentials }}"
     dest: "{{ item.home }}/{{ item.name }}/.aws/credentials"
     owner: "{{ item.name }}"
     group: "{{ item.group }}"
