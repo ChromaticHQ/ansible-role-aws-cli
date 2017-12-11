@@ -6,12 +6,6 @@
     state: present
   become: true
 
-# Make sure it's really present and working.
-- name: Test AWS CLI
-  shell: "aws --version"
-  register: aws_version
-  failed_when: "'aws-cli' not in aws_version.stderr"
-
 # Make sure the .aws directory exists for each user.
 - name: Create ~/.aws directory
   file:
@@ -19,26 +13,28 @@
     owner: "{{ item.name }}"
     group: "{{ item.group }}"
     state: directory
-    force: no
-  become: yes
+    force: "no"
   with_items: "{{ aws_users | default([]) }}"
+  become: true
 
 # Create config file if not exists.
 - name: Create AWS CLI config file
   template:
-    src: "{{ aws_cli_config }}"
+    src: "{{ aws_config }}"
     dest: "{{ item.home }}/{{ item.name }}/.aws/config"
     owner: "{{ item.name }}"
     group: "{{ item.group }}"
-    force: yes
+    force: "yes"
   with_items: "{{ aws_users | default([]) }}"
+  become: true
 
 # Copy in a sample credentials file if none exists.
 - name: Create AWS CLI credentials file
   template:
-    src: "{{ aws_cli_credentials }}"
+    src: "{{ aws_credentials }}"
     dest: "{{ item.home }}/{{ item.name }}/.aws/credentials"
     owner: "{{ item.name }}"
     group: "{{ item.group }}"
-    force: yes
+    force: "yes"
   with_items: "{{ aws_users | default([]) }}"
+  become: true

@@ -13,5 +13,5 @@
 # Should also include the path to the user's home directory in case it might
 # be non-standard (i.e. not in /home).
 
-aws_cli_config: "config.j2"
-aws_cli_credentials: "credentials.j2"
+aws_config: "config.j2"
+aws_credentials: "credentials.j2"
