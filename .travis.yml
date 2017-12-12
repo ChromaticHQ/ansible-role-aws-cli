@@ -1,4 +1,5 @@
 ---
+# Travis CI configuration
 sudo: required
 language: python
 services:
