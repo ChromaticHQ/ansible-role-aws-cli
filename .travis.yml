@@ -6,9 +6,10 @@ services:
   - docker
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install docker-ce
+  - sudo apt-get install virtualbox
+  - sudo apt-get install vagrant
 install:
   - pip install molecule
-  - pip install docker
+  - pip install python-vagrant
 script:
   - molecule test
