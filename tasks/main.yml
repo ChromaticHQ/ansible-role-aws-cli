@@ -8,7 +8,7 @@
 
 # Make sure the .aws directory exists for each user.
 - name: Create ~/.aws directory
-  file:
+   file:
     path: "{{ item.home }}/{{ item.name }}/.aws"
     owner: "{{ item.name }}"
     group: "{{ item.group }}"
