@@ -8,6 +8,6 @@ before_install:
   - sudo apt-get install python-pip
 install:
   - pip install molecule
-  - pip install docker
+  - pip install docker-py
 script:
   - molecule --debug test
