@@ -1,15 +1,12 @@
 ---
-# Travis CI configuration
 sudo: required
 language: python
 services:
-  - vagrant
+  - docker
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install vagrant
-  - sudo apt-get install virtualbox
 install:
   - pip install molecule
-  - pip install python-vagrant
+  - pip install docker
 script:
-  - molecule --debug test
+  - molecule test

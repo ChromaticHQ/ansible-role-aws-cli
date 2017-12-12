@@ -2,18 +2,12 @@
 dependency:
   name: galaxy
 driver:
-  name: vagrant
-  provider:
-    name: virtualbox
+  name: docker
 lint:
   name: yamllint
 platforms:
   - name: instance
-    instance_interfaces:
-      - auto_config: true
-        ip: 192.168.128.64
-        network_name: private_network
-    box: ubuntu/xenial64
+    image: centos:7
 provisioner:
   name: ansible
   lint:
