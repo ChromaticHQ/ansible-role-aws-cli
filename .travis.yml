@@ -3,14 +3,13 @@
 sudo: required
 language: python
 services:
-  - docker
+  - vagrant
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install virtualbox
   - sudo apt-get install vagrant
+  - sudo apt-get install virtualbox
 install:
   - pip install molecule
   - pip install python-vagrant
-  - vagrant global-status
 script:
   - molecule --debug test
