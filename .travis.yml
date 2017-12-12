@@ -12,4 +12,4 @@ install:
   - pip install molecule
   - pip install python-vagrant
 script:
-  - molecule test
+  - molecule --debug test
