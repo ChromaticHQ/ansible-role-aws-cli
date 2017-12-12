@@ -11,5 +11,6 @@ before_install:
 install:
   - pip install molecule
   - pip install python-vagrant
+  - vagrant global-status
 script:
   - molecule --debug test
