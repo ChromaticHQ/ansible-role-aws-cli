@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/ChromaticHQ/ansible-role-aws-cli.svg?branch=master)](https://travis-ci.org/ChromaticHQ/ansible-role-aws-cli)
+
 # AWS CLI
 
 This role:
