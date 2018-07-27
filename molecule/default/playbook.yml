@@ -11,5 +11,5 @@
         region: "us-east-1"
         output: "json"
         home: "/var/lib"
-    AWS_ACCESS_KEY_ID: "molecule-aws-access-key-id"
-    AWS_SECRET_ACCESS_KEY: "molecule-aws-secret-access-key"
+    aws_access_key_id: "molecule-aws-access-key-id"
+    aws_secret_access_key: "molecule-aws-secret-access-key"
