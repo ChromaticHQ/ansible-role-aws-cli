@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
 install:
   - pip install molecule
-  - pip install docker-py
+  - pip install docker
 script:
   # Replace with `molecule --debug test` for debugging.
   - molecule test

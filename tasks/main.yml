@@ -37,4 +37,5 @@
     group: "{{ item.group }}"
     force: "yes"
   with_items: "{{ aws_users | default([]) }}"
+  no_log: true
   become: true

@@ -15,3 +15,5 @@
 
 aws_config: "config.j2"
 aws_credentials: "credentials.j2"
+aws_access_key_id: ""
+aws_secret_access_key: ""
